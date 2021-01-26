@@ -16,8 +16,10 @@
     "ts-node-dev": "^1.1.1"
   },
   "scripts": {
+    "--- autogen -------": "--------------------------------------",
     "generate:prompt": "ts-node-dev ./internals/dto/prompt",
     "generate:no-prompt": "ts-node-dev ./internals/dto/no-prompt",
+    "--- experiments ---": "--------------------------------------",
     "create:client": "npx @openapitools/openapi-generator-cli generate -i https://petstore3.swagger.io/api/v3/openapi.json -g typescript-node -o ./src/client/petstore"
   }
 }
