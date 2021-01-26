@@ -1,14 +1,14 @@
 {
   "version": "0.0.1",
   "license": "UNLICENSED",
-  "description": "My application",
+  "description": "Maapteh https://medium.com/ah-technology/auto-generate-typescript-d-ts-from-your-api-requests-responses-4d44b9f2d138",
   "repository": "https://github.com/maapteh/example-dts-generator.git",
   "private": false,
   "dependencies": {
-    "@openapitools/openapi-generator-cli": "^2.1.18"
   },
   "devDependencies": {
     "@dtsgenerator/replace-namespace": "^1.4.1",
+    "@openapitools/openapi-generator-cli": "^2.1.18",
     "@types/node": "^14.14.22",
     "dtsgenerator": "^3.7.0",
     "inquirer": "^7.3.3",
