@@ -39,7 +39,7 @@ export const generate = (docs: string[]) => {
             try {
                 const response = await nodeFetch(url).then(res => res.json());
 
-                dtsGenerator({
+                const generatedContent = await dtsGenerator({
                     contents: [parseSchema(response)],
                     config: {
                         target: ts.ScriptTarget.ES2019,
@@ -58,19 +58,19 @@ export const generate = (docs: string[]) => {
                             }
                         }
                     }
-                }).then(res => {
-                    fs.writeFile(
-                        `src/generated-dto/${serviceName}.d.ts`,
-                        `/* eslint-disable */\n${res}`,
-                        { flag: 'w' },
-                        (err?: string) => {
-                            if (err) {
-                                return console.log(err);
-                            }
-                            console.log(`- the types for ${serviceName} are generated.`);
-                        },
-                    );
                 });
+
+                fs.writeFile(
+                    `src/generated-dto/${serviceName}.d.ts`,
+                    `/* eslint-disable */\n${generatedContent}`,
+                    { flag: 'w' },
+                    (err?: string) => {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log(`- the types for ${serviceName} are generated.`);
+                    },
+                );
 
                 resolve({ url, status: response.status });
             } catch (error) {
