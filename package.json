@@ -4,7 +4,9 @@
   "description": "My application",
   "repository": "https://github.com/maapteh/example-dts-generator.git",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.1.18"
+  },
   "devDependencies": {
     "@dtsgenerator/replace-namespace": "^1.4.1",
     "@types/node": "^14.14.22",
@@ -15,6 +17,7 @@
   },
   "scripts": {
     "generate:prompt": "ts-node-dev ./internals/dto/prompt",
-    "generate:no-prompt": "ts-node-dev ./internals/dto/no-prompt"
+    "generate:no-prompt": "ts-node-dev ./internals/dto/no-prompt",
+    "create:client": "npx @openapitools/openapi-generator-cli generate -i https://petstore3.swagger.io/api/v3/openapi.json -g typescript-node -o ./src/client/petstore"
   }
 }

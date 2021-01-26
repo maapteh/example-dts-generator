@@ -1,1 +1,4 @@
 node_modules
+
+.openapi-generator/
+src/client/**/*.sh
